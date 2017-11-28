@@ -9,6 +9,10 @@ namespace DutyRoster.Data
 {
     public class Club
     {
+        public Club()
+        {
+            Address = new HashSet<Address>();
+        }
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
@@ -16,7 +20,7 @@ namespace DutyRoster.Data
         public string Name { get; set; }
 
         [Required]
-        public ICollection<Address> Address { get; set; }
+        public virtual IEnumerable<Address> Address { get; set; }
 
         [Required]
         public string PhoneNumber { get; set; }

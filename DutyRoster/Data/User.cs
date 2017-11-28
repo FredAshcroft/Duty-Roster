@@ -14,14 +14,18 @@ namespace DutyRoster.Data
 {
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        {
+            Address = new HashSet<Address>();
+        }
         [Required]
         public string Name { get; set; }
 
         [Required]
-        public ICollection<Address> Address { get; set; }
-
+        public IEnumerable<Address> Address { get; set; }
+        public int ClubId { get; set; }
         [Required]
-        public ICollection<Club> Club { get; set; }
+        public Club Club { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

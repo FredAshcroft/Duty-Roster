@@ -21,5 +21,11 @@ namespace DutyRoster.Data
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Club> Clubs { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<DutyGroup> DutyGroups { get; set; }
+        public DbSet<Duty> Duties { get; set; }
+        public DbSet<DutyType> DutyTypes { get; set; }
     }
 }

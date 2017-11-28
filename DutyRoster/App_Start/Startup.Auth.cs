@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using DutyRoster.Models;
+using DutyRoster.Data;
 
 namespace DutyRoster
 {

@@ -7,14 +7,10 @@ using System.Web;
 
 namespace DutyRoster.Data
 {
-    public class Dutytype
+    public class DutyType
     {
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-
-        public string Dutyid { get; set; }
-
 
         public string Type { get; set; }
 
