@@ -202,6 +202,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Data\Address.cs" />
+    <Compile Include="Data\Club.cs" />
+    <Compile Include="Data\DbContext.cs" />
+    <Compile Include="Data\Duty Group.cs" />
+    <Compile Include="Data\Duty.cs" />
+    <Compile Include="Data\Dutytype.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
