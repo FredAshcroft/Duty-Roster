@@ -21,9 +21,6 @@ namespace DutyRoster.Data
 
         public string Instructions { get; set; }
 
-        
-        public string Dutytype { get; set; }
-
         [Required]
         public string Date { get; set; }
     }
