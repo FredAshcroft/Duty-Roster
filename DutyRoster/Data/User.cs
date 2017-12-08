@@ -26,6 +26,8 @@ namespace DutyRoster.Data
         public int ClubId { get; set; }
         [Required]
         public Club Club { get; set; }
+        [Required]
+        public string Password { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
