@@ -34,7 +34,7 @@ namespace DutyRoster.Migrations
                 Password = "Nathan098",
                 PhoneNumber = "07654321098"
             });
-
+            
         }
     }
 }
