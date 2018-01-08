@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace DutyRoster.Controllers
 {
+    [Authorize(Roles = "SA")]
     public class AdminController : Controller
     {
         //GET: Admin

@@ -1,0 +1,36 @@
+﻿@using DutyRoster.Models
+@model IEnumerable<ClubModel>
+@{
+    ViewBag.Title = "Index";
+}
+<div style="padding-top:20px"></div>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h2>System Administration</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Contact Email</td>
+                <td>Phone Number</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var c in Model)
+                {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.Name</td>
+                    <td>@c.ContactEmail</td>
+                    <td>@c.PhoneNumber</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+

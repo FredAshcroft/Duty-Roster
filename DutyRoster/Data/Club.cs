@@ -12,6 +12,8 @@ namespace DutyRoster.Data
         public Club()
         {
             Address = new HashSet<Address>();
+            Duties = new HashSet<Duty>();
+            AvailableDuties = new HashSet<DutyType>();
         }
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -27,5 +29,8 @@ namespace DutyRoster.Data
 
         [Required]
         public string ContactEmail { get; set; }
+        public virtual IEnumerable<ApplicationUser> Members { get; set; }
+        public virtual IEnumerable<Duty> Duties { get; set; }
+        public virtual IEnumerable<DutyType> AvailableDuties { get; set; }
     }
 }

@@ -11,6 +11,9 @@ namespace DutyRoster.Data
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public int ClubId { get; set; }
+
+        public Club Club { get; set; }
 
         [Required]
         public string HouseNumber { get; set; }

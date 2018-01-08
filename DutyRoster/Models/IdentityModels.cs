@@ -18,16 +18,16 @@ namespace DutyRoster.Models
     //    }
     //}
 
-    //public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    //public class RosterContext : IdentityDbContext<ApplicationUser>
     //{
-    //    public ApplicationDbContext()
+    //    public RosterContext()
     //        : base("DefaultConnection", throwIfV1Schema: false)
     //    {
     //    }
 
-    //    public static ApplicationDbContext Create()
+    //    public static RosterContext Create()
     //    {
-    //        return new ApplicationDbContext();
+    //        return new RosterContext();
     //    }
     //}
 }
