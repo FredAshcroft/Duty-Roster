@@ -18,6 +18,7 @@ namespace DutyRoster
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            MapperConfig.ConfigureMapping();
         }
     }
 }

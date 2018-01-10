@@ -15,14 +15,14 @@ namespace DutyRoster.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "The Roster Project providing a better way of managing your volunteers.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact details for the roster Project";
 
             return View();
         }
