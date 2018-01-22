@@ -10,70 +10,72 @@ namespace DutyRoster.Controllers
         // GET: Event
         public ActionResult Index()
         {
-            Rostercontext context = new DutyEntities();
-            Member mbr = (Member)context.Member.Where(m => m.UserProfileId == WebSecurity.CurrentUserId).First();
-            Settings set = context.Settings.Find(1);
-            BoatBookingModel model = new BoatBookingModel
-            {
-                MemberName = User.Identity.Name,
-                CanBook = mbr.CanBookBoats,
-                AdvanceBookingDays = set.AdvanceDaysToBook,
-                Title = set.BookingPageHeader,
-                Mesage = set.BookingPageMessage,
-            };
+            //Rostercontext context = new DutyEntities();
+            //Member mbr = (Member)context.Member.Where(m => m.UserProfileId == WebSecurity.CurrentUserId).First();
+            //Settings set = context.Settings.Find(1);
+            //BoatBookingModel model = new BoatBookingModel
+            //{
+            //    MemberName = User.Identity.Name,
+            //    CanBook = mbr.CanBookBoats,
+            //    AdvanceBookingDays = set.AdvanceDaysToBook,
+            //    Title = set.BookingPageHeader,
+            //    Mesage = set.BookingPageMessage,
+            //};
             return View(model);
         }
 
         public JsonResult GetBoatBookings(double start, double end)
         {
-            var fromDate = ConvertFromUnixTimestamp(start);
-            var toDate = ConvertFromUnixTimestamp(end);
-            if (fromDate.Date < DateTime.Now.Date)
-            {
-                fromDate = DateTime.Now.Date;
-            }
-            Rostercontext context = new DutyEntities();
-            var bookings = context.GetBoatBookings(fromDate, toDate);
-            var eventList = from e in bookings
-                            select new
-                            {
-                                id = e.Id,
-                                title = e.boat + " Booked",
-                                description = "Booked By: " + e.MemberName,
-                                start = e.BookingDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture),
-                                //end = e.BookingDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture),
-                                allDay = true,
-                                member = e.MemberName,
-                                backgroundColor = e.MemberName.ToLower() == WebSecurity.CurrentUserName.ToLower() ? "Green" : "Red"
-                            };
-            var rows = eventList.ToArray();
-            return Json(rows, JsonRequestBehavior.AllowGet);
+            //var fromDate = ConvertFromUnixTimestamp(start);
+            //var toDate = ConvertFromUnixTimestamp(end);
+            //if (fromDate.Date < DateTime.Now.Date)
+            //{
+            //    fromDate = DateTime.Now.Date;
+            //}
+            //Rostercontext context = new DutyEntities();
+            //var bookings = context.GetBoatBookings(fromDate, toDate);
+            //var eventList = from e in bookings
+            //                select new
+            //                {
+            //                    id = e.Id,
+            //                    title = e.boat + " Booked",
+            //                    description = "Booked By: " + e.MemberName,
+            //                    start = e.BookingDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture),
+            //                    //end = e.BookingDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture),
+            //                    allDay = true,
+            //                    member = e.MemberName,
+            //                    backgroundColor = e.MemberName.ToLower() == WebSecurity.CurrentUserName.ToLower() ? "Green" : "Red"
+            //                };
+            //var rows = eventList.ToArray();
+            //return Json(rows, JsonRequestBehavior.AllowGet);
+            return null;
         }
 
         public JsonResult Getcalendarevents(double start, double end)
             {
-                var fromDate = ConvertFromUnixTimestamp(start);
-                var toDate = ConvertFromUnixTimestamp(end);
-                if (fromDate.Date < DateTime.Now.Date)
-                {
-                    fromDate = DateTime.Now.Date;
-                }
-                BookingEntities context = new BookingEntities();
-                var bookings = context.GetBoatBookings(fromDate, toDate);
-                var eventList = from e in bookings
-                                select new
-                                {
-                                    id = e.Id,
-                                    title = e.Duty + " Booked",
-                                    description = "Booked By: " + e.MemberName,
-                                    start = e.BookingDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture),
-                                    //end = e.BookingDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture),
-                                    allDay = true,
-                                    member = e.MemberName,
-                                    backgroundColor = e.MemberName.ToLower() == WebSecurity.CurrentUserName.ToLower() ? "Green" : "Red"
-                                };
-                var rows = eventList.ToArray();
-                return Json(rows, JsonRequestBehavior.AllowGet);
+            //var fromDate = ConvertFromUnixTimestamp(start);
+            //var toDate = ConvertFromUnixTimestamp(end);
+            //if (fromDate.Date < DateTime.Now.Date)
+            //{
+            //    fromDate = DateTime.Now.Date;
+            //}
+            //BookingEntities context = new BookingEntities();
+            //var bookings = context.GetBoatBookings(fromDate, toDate);
+            //var eventList = from e in bookings
+            //                select new
+            //                {
+            //                    id = e.Id,
+            //                    title = e.Duty + " Booked",
+            //                    description = "Booked By: " + e.MemberName,
+            //                    start = e.BookingDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture),
+            //                    //end = e.BookingDate.ToString("s", System.Globalization.CultureInfo.InvariantCulture),
+            //                    allDay = true,
+            //                    member = e.MemberName,
+            //                    backgroundColor = e.MemberName.ToLower() == WebSecurity.CurrentUserName.ToLower() ? "Green" : "Red"
+            //                };
+            //var rows = eventList.ToArray();
+            //return Json(rows, JsonRequestBehavior.AllowGet);
+            return null;
             }
 
             private static DateTime ConvertFromUnixTimestamp(double timestamp)
@@ -82,6 +84,4 @@ namespace DutyRoster.Controllers
                 return origin.AddSeconds(timestamp);
             }
         }
-
-
-    } }
+    } 

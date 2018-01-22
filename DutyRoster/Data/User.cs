@@ -22,10 +22,12 @@ namespace DutyRoster.Data
         public string Name { get; set; }
 
         [Required]
-        public IEnumerable<Address> Address { get; set; }
+        public virtual IEnumerable<Address> Address { get; set; }
         public int ClubId { get; set; }
 
         public Club Club { get; set; }
+
+        public virtual IEnumerable<Duty> Duties { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

@@ -97,6 +97,81 @@ namespace DutyRoster.Data.Utils
                 }
             }
         }
+        public static void SeedDuties(RosterContext context)
+        {
+            var SafteyBoatDriver = new DutyType
+            {
+                Name = "Safety Boat Driver",
+                ClubId = 1,
+                Description = "Driving a safety boat for an event.",
+                Instructions = "Provide adiquite safety coverage for the event."
+                // Sb driver ,SB assistant, Race officer ,RO assistant
+            };
+            var SafteyBoatAssistant = new DutyType
+            {
+                Name = "Safety Boat Assistant",
+                ClubId = 1,
+                Description = "Assisting the safety boat driver.",
+                Instructions = "Help driver provide adiquite safety coverage for the event."
+            };
+            var RaceOfficer = new DutyType
+            {
+                Name = "Race Officer",
+                ClubId = 1,
+                Description = "Help running a race by conducting start sequence and finish times.",
+                Instructions = "Help organise launching of participants and making apropriate choices for shortened course etc based on circumstances. "
+            };
+            var RaceOfficerassistant = new DutyType
+            {
+                Name = "Race Officer Assistant",
+                ClubId = 1,
+                Description = "Assisting thhe Race officer in running a race.",
+                Instructions = "Assist the race officer with their duties to the best of your ability."
+                
+            };
+            var d1 = new Duty
+            {
+                Name = "test1",
+                ClubId = 1,
+                Description = "test SB driver",
+                FromDate = DateTime.Now.AddDays(3),
+                ToDate = DateTime.Now.AddDays(3.5),
+            };
+            var d2 = new Duty
+            {
+                Name = "test2",
+                ClubId = 1,
+                Description = "test SB Assistant",
+                FromDate = DateTime.Now.AddDays(3),
+                ToDate = DateTime.Now.AddDays(3.5),
+            };
+            var d3 = new Duty
+            {
+                Name = "test3",
+                ClubId = 1,
+                Description = "test Race Officer",
+                FromDate = DateTime.Now.AddDays(5),
+                ToDate = DateTime.Now.AddDays(5.5),
+            };
+            var d4 = new Duty
+            {
+                Name = "test4",
+                ClubId = 1,
+                Description = "test RO Assistant",
+                FromDate = DateTime.Now.AddDays(5),
+                ToDate = DateTime.Now.AddDays(5.5),
+            };
+            context.DutyTypes.Add(SafteyBoatDriver);
+            context.DutyTypes.Add(SafteyBoatAssistant);
+            context.DutyTypes.Add(RaceOfficer);
+            context.DutyTypes.Add(RaceOfficerassistant);
 
+            context.Duties.Add(d1);
+            context.Duties.Add(d2);
+            context.Duties.Add(d3);
+            context.Duties.Add(d4);
+
+            context.SaveChanges();
+        }
     }
 }

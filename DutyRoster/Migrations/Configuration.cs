@@ -21,6 +21,7 @@ namespace DutyRoster.Migrations
             //  This method will be called after migrating to the latest version.
             DBSeeder.SeedClubs(context);
             DBSeeder.SeedIdentities(context);
+            DBSeeder.SeedDuties(context);
             
         }
     }

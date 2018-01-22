@@ -28,5 +28,8 @@ namespace DutyRoster.Data
         public DateTime FromDate { get; set; }
         [Required]
         public DateTime ToDate { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
+
     }
 }

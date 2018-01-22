@@ -3,44 +3,7 @@
         theme: true,
         editable: false,
         allDaySlot: true,
-        events: '/Boat/GetBoatBookings/',
-        // Event Editing
-        eventClick: function (calEvent, jsEvent, view) {
-            if ($('#MemberName').val().toLowerCase() == calEvent.member.toLowerCase()) {
-                var today = new Date();
-                var cancellationDays = $('#CancellationDays').val();
-                var cancelDays = calEvent.start;
-                var cancelOffset = cancellationDays * 24 * 60 * 60 * 1000;
-                cancelDays.setHours(0, 0, 0, 0);
-                cancelDays.setTime(cancelDays.getTime() - cancelOffset);
-                today.setHours(0, 0, 0, 0);
-                if (today >= cancelDays) {
-                    ShowAlert("Cancel Booking", "You cannot cancel a booking within " + $('#CancellationDays').val() + ' days of the booking')
-                }
-                else {
-                    bootbox.confirm("Would you like to cancel this booking", function (result) {
-                        if (result == true) {
-                            var dataRow = {
-                                'bookingId': calEvent.id
-                            };
-                            $.ajax({
-                                type: 'POST',
-                                url: '/Boat/DeleteBooking/',
-                                data: dataRow,
-                                success: function (response) {
-                                    if (response == 'True') {
-                                        $('#calendar').fullCalendar('refetchEvents');
-                                        ShowAlert('', 'Booking Cancelled');
-                                    }
-                                    else {
-                                        ShowAlert('', 'Error, could not cancel Booking!');
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-            }
+        events: '/calendar/GetDuties',
         },
         // Day Editing - New Events
         dayClick: function (date, allDay, jsEvent, view) {
