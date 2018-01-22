@@ -1,7 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Duty Calendar";
 }
 
-<h2>Index</h2>
 
+<h2>@ViewBag.title</h2>
+
+<div id='calendar'></div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/calendar")
+    }

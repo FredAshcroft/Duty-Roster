@@ -1,0 +1,44 @@
+﻿@using SSW.Bookings.Models
+@model List<AdministratorModel>
+@{
+    ViewBag.Title = "Administrators";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.Action("Get", "Menu")
+    <div class="jumbotron">
+        <h2>@ViewBag.Title</h2>
+        <p>Click on any email below and it should start your email client</p>
+    </div>
+    if (Model != null && Model.Count > 0)
+    {
+        <div class="panel panel-primary">
+            <table class=" table table-responsive">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Email</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (AdministratorModel m in Model)
+                    {
+                        <tr>
+                            <td>@m.Name</td>
+                            <td><a href="mailto:@m.Email">@m.Email</a> </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+else
+{
+    Response.Redirect("~");
+}
+
+
+

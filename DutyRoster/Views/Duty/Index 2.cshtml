@@ -1,0 +1,56 @@
+﻿@using SSW.Bookings.Models
+@model BoatBookingModel
+@{
+    ViewBag.Title = "Boat Bookings";
+}
+@section styles{
+    @Styles.Render("~/Content/calendar")
+}
+@section scripts{
+    @Scripts.Render("~/bundles/calendar")
+    @Scripts.Render("~/bundles/boat")   
+}
+
+<div id="main_content" class="container">
+    @if (User.Identity.IsAuthenticated)
+    {
+         @Html.Action("Get", "Menu")
+        
+        <div class="jumbotron">
+            <h2>@Html.DisplayFor(m => m.Title)</h2>
+            <p class=" lead">@Html.DisplayFor(m => m.Mesage)</p>
+        </div>
+        @Html.HiddenFor(member => member.MemberName)
+        @Html.HiddenFor(member => member.CanBook)
+        @Html.HiddenFor(member => member.AdvanceBookingDays)
+        @Html.HiddenFor(m => m.CancellationDays)
+    <div id="calendar"></div>
+        
+        using (var m = Html.Bootstrap().Begin(new Modal().Id("newBookingForm").Closeable()))
+        {
+            using (m.BeginHeader())
+            {
+                <h2>Book Boat</h2>
+            }
+            using (m.BeginBody())
+            {
+                using (var f = Html.Bootstrap().Begin(new Form().LabelWidthXs(3)))
+                {
+                    @Html.AntiForgeryToken()
+                    @f.FormGroup().TextBox("Date").Placeholder("Booking Date").Id("Date").ShowValidationMessage(true)
+                    @f.FormGroup().CustomControls(Html.Bootstrap().Button().Text("Show Available Boats").Id("btnShowBoats"))
+                    <div class="form-group" id="boats">
+                        <label class="control-label col-xs-3" for="boatList">Available Boats</label>
+                        <div class="col-xs-9">
+                            <select class="form-control" id="boatList"></select>
+                        </div>
+                    </div>
+                    using (m.BeginFooter())
+                    {
+                    @f.FormGroup().CustomControls(Html.Bootstrap().Button().Text("Book Boat").Id("btnBookBoat").Data(new { dismiss = "modal" }), Html.Bootstrap().Button().Text("Cancel").Data(new { dismiss = "modal" }).Id("btnCancelBooking"))
+                    }
+                }
+            }
+        }
+    }
+    </div>
