@@ -1,0 +1,20 @@
+[
+  {
+    "outputFileName": "Scripts/app/Calenderfeeder.min.js",
+    "inputFiles": [
+      "Scripts/app/Calenderfeeder.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/app/rostercalender.min.js",
+    "inputFiles": [
+      "Scripts/app/rostercalender.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/app/dutycalender.min.js",
+    "inputFiles": [
+      "Scripts/app/dutycalender.js"
+    ]
+  }
+]

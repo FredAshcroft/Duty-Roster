@@ -6,18 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Newtonsoft;
+using Newtonsoft.Json;
 
 namespace DutyRoster.Controllers
 {
-    [Route("calendar")]
+    [Route("duty")]
     public class CalendarController : ApiController
     {
-        [Route("GetDuties")]
-        public IHttpActionResult GetDuties(double fromDate, double toDate)
+        [Route("get")]
+        [HttpGet]
+        [Authorize]
+        public IHttpActionResult GetDuties(double start, double end)
         {
-            DateTime startDate = ConvertFromUnixTimestamp(fromDate);
-            DateTime endDate = ConvertFromUnixTimestamp(toDate);
+            DateTime startDate = ConvertFromUnixTimestamp(start);
+            DateTime endDate = ConvertFromUnixTimestamp(end);
             using (var context = RosterContext.Create())
             {
                 var duties = context.Duties.Where(d => d.FromDate >= startDate && d.ToDate <= endDate);
@@ -26,7 +28,7 @@ namespace DutyRoster.Controllers
                 {
                     model.Add(new DutyModel { Id = d.Id,ClubId = d.ClubId, Description= d.Description, FromDate = d.FromDate, ToDate=d.ToDate, Name=d.Name, Instructions=d.Instructions,UserId=d.UserId });
                 }
-                string json = Newtonsoft.Json.JsonConvert.SerializeObject(model);
+                string json = JsonConvert.SerializeObject(model);
                 return Ok(json);
             }
         }

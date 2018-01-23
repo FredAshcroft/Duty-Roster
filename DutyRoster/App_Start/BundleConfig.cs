@@ -26,7 +26,7 @@ namespace DutyRoster
             bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
                 "~/Scripts/moment.js",
                 "~/Scripts/fullcalendar.js",
-                  "~/Scripts/Calenderfeeder.js"));
+                "~/Scripts/app/dutycalender.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
