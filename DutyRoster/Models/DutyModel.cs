@@ -13,7 +13,7 @@ namespace DutyRoster.Models
 
 
         [Required, StringLength(50)]
-        public string Name { get; set; }
+        public string title { get; set; }
 
         [Required]
         public string Description { get; set; }
@@ -22,9 +22,9 @@ namespace DutyRoster.Models
         public string Instructions { get; set; }
 
         [Required]
-        public DateTime FromDate { get; set; }
+        public string start { get; set; }
         [Required]
-        public DateTime ToDate { get; set; }
+        public string end { get; set; }
 
         public string UserId { get; set; }
     }

@@ -5,29 +5,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web.Http;
-using Newtonsoft;
+using System.Web.Http.Results;
+using System.Web.Mvc;
 
 namespace DutyRoster.Controllers
 {
     [Route("calendar")]
-    public class CalendarController : ApiController
+    public class CalendarController : Controller
     {
-        [Route("GetDuties")]
-        public IHttpActionResult GetDuties(double fromDate, double toDate)
+        [Route("GetDuties")]      
+        public JsonResult GetDuties(string start, string end)
         {
-            DateTime startDate = ConvertFromUnixTimestamp(fromDate);
-            DateTime endDate = ConvertFromUnixTimestamp(toDate);
+            DateTime startDate =  Convert.ToDateTime(start);
+            DateTime endDate = Convert.ToDateTime(end);
             using (var context = RosterContext.Create())
             {
                 var duties = context.Duties.Where(d => d.FromDate >= startDate && d.ToDate <= endDate);
                 List<DutyModel> model = new List<DutyModel>();
                 foreach (var d in duties)
                 {
-                    model.Add(new DutyModel { Id = d.Id,ClubId = d.ClubId, Description= d.Description, FromDate = d.FromDate, ToDate=d.ToDate, Name=d.Name, Instructions=d.Instructions,UserId=d.UserId });
+                    model.Add(new DutyModel {
+                        Id = d.Id,
+                        ClubId = d.ClubId,
+                        Description = d.Description,
+                        start = d.FromDate.ToString("yyyy'-'MM'-'dd"),
+                        end =d.ToDate.ToString("yyyy'-'MM'-'dd"),
+                        title =d.Name,
+                        Instructions =d.Instructions,
+                        UserId =d.UserId
+                    });
                 }
-                string json = Newtonsoft.Json.JsonConvert.SerializeObject(model);
-                return Ok(json);
+                return Json(model, JsonRequestBehavior.AllowGet);
             }
         }
 
