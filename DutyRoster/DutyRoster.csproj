@@ -289,6 +289,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\dutycalender.es5.js">
+      <DependentUpon>dutycalender.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\dutycalender.es5.min.js">
+      <DependentUpon>dutycalender.es5.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\app\dutycalender.min.js">
+      <DependentUpon>dutycalender.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -302,14 +311,19 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="bundleconfig.json" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="Scripts\Calenderfeeder.js" />
+    <Content Include="Scripts\app\dutycalender.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
     <Content Include="Scripts\gcal.js" />
     <Content Include="Scripts\gcal.min.js" />
-    <Content Include="Scripts\Eventfeeder.js" />
+    <Content Include="Scripts\app\Eventfeeder.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
