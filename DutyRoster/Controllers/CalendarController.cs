@@ -32,10 +32,34 @@ namespace DutyRoster.Controllers
                         end =d.ToDate.ToString("yyyy'-'MM'-'dd"),
                         title =d.Name,
                         Instructions =d.Instructions,
-                        UserId =d.UserId
+                        UserId =d.UserId,
+                        starttime = d.Starttime,
+                        endtime = d.Endtime,
+                        backgroundColor = string.IsNullOrEmpty(d.UserId) ? "Red" : "Green"
+
                     });
                 }
                 return Json(model, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [Route("volunteer")]
+        public bool Volunteer(int dutyId)
+        {
+
+            try
+            {
+                using (var context = RosterContext.Create())
+                {
+                    var usr = context.Users.First(u => u.Name == User.Identity.Name);
+                    var duty = context.Duties.First(d => d.Id == dutyId);
+                    duty.UserId = usr.Id;
+                    context.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
 

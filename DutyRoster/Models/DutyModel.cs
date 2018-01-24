@@ -20,12 +20,14 @@ namespace DutyRoster.Models
 
 
         public string Instructions { get; set; }
-
+        public string starttime { get; set; }
+        public string endtime { get; set; }
         [Required]
         public string start { get; set; }
         [Required]
         public string end { get; set; }
 
         public string UserId { get; set; }
+        public string backgroundColor { get; set; }
     }
 }

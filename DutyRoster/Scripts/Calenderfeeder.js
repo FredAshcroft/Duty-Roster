@@ -6,10 +6,10 @@
         eventClick: function (event, element) {
             // Display the modal and set the values to the event values.
             $('#title').html(event.title);
-            $('#starts-at').html(event.Description);
-            $('#ends-at').html(event.end);
+            $('#starttime').html(event.starttime);
+            $('#endtime').html(event.endtime);
+            $('#dutyId').val(event.Id);
             $('.modal').modal('show');
-            
 
         },
         eventRender: function (event, element) {
@@ -20,5 +20,26 @@
             });
         }
     });
-    
+});
+
+$('#volunteerBtn').click(function () {
+
+    var dataRow = {
+        'dutyId': $('#dutyId').val()
+    };
+
+    $.ajax({
+        type: 'POST',
+        data: dataRow,
+        url: '/calendar/volunteer/',      
+        success: function (response) {
+            if (response === 'True') {
+                $('#calendar').fullCalendar('refetchEvents');
+                ShowAlert('', 'Volunteered for duty');
+            }
+            else {
+                ShowAlert('', 'Error, Could Not Volunteer you for that duty!');
+            }
+        }
+    });
 });

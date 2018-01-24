@@ -21,7 +21,8 @@ namespace DutyRoster.Data
         [Required]
         public string Description { get; set; }
 
-
+        public string Starttime { get; set; }
+        public string Endtime { get; set; }
         public string Instructions { get; set; }
 
         [Required]
@@ -30,6 +31,7 @@ namespace DutyRoster.Data
         public DateTime ToDate { get; set; }
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
+        
 
     }
 }

@@ -136,6 +136,8 @@ namespace DutyRoster.Data.Utils
                 Description = "test SB driver",
                 FromDate = DateTime.Now.AddDays(3),
                 ToDate = DateTime.Now.AddDays(3.5),
+                Starttime = "9:00AM",
+                Endtime = "4:00PM"
             };
             var d2 = new Duty
             {
@@ -144,6 +146,8 @@ namespace DutyRoster.Data.Utils
                 Description = "test SB Assistant",
                 FromDate = DateTime.Now.AddDays(3),
                 ToDate = DateTime.Now.AddDays(3.5),
+                Starttime = "9:00AM",
+                Endtime = "4:00PM"
             };
             var d3 = new Duty
             {
@@ -152,6 +156,8 @@ namespace DutyRoster.Data.Utils
                 Description = "test Race Officer",
                 FromDate = DateTime.Now.AddDays(5),
                 ToDate = DateTime.Now.AddDays(5.5),
+                Starttime = "9:00AM",
+                Endtime = "4:00PM"
             };
             var d4 = new Duty
             {
@@ -160,6 +166,8 @@ namespace DutyRoster.Data.Utils
                 Description = "test RO Assistant",
                 FromDate = DateTime.Now.AddDays(5),
                 ToDate = DateTime.Now.AddDays(5.5),
+                Starttime = "9:00AM",
+                Endtime = "4:00PM"
             };
             context.DutyTypes.Add(SafteyBoatDriver);
             context.DutyTypes.Add(SafteyBoatAssistant);

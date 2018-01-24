@@ -13,12 +13,25 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <div class="modal-body"> 
-                    <div class="row"> <p>Duty: </p> <p id="title"></p></div>
-                    <div class="row"> <p>Start time: </p> <p id="starts-at"></p></div>
-                    <div class="row"> <p>Finish time: </p> <p id="ends-at"></p></div>
+                    <table>
+                        <tr>
+                            <td><p>Duty: </p></td>
+                            <td><p id="title"></p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Start time: </p></td>
+                            <td><p id="starttime"></p></td>
+                        </tr>
+                        <tr>
+                            <td><p>End time: </p></td>
+                            <td><p id="endtime"></p></td>
+                        </tr>
+                    </table> 
+                    <input type="hidden" id="dutyId" value="0"/>
                     </div>
                 </div>           
             <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="volunteerBtn">Volunteer</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div><!-- /.modal-content -->
